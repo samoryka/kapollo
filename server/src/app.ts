@@ -8,11 +8,8 @@ import {getPort, getWebSocketPort} from "./utils/ProcessConfig";
 
 const socketIo = io(getWebSocketPort(), {path: ""});
 
-
 const app = express();
 app.use(express.json());
-
-app.get("/", (req, res) => res.send("Test"));
 app.use("/stream", streamController(socketIo));
 
 const server = app.listen(getPort(), () => {

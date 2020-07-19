@@ -30,15 +30,23 @@ export const streamController = (socketServer: Server) => {
         res.sendStatus(200);
     }));
 
-    streamController.post("/:streamId/play", ((req: Request<StreamParamsDictionary, Note>, res) => {
-        const {streamId} = req.params;
+    streamController.post("/:streamId/note/:action", ((req: Request<StreamParamsDictionary, Note>, res) => {
+        const {streamId, action} = req.params;
+        const note = req.body;
 
-        if(!streamService.streamExists(streamId)) {
+        if (!streamService.streamExists(streamId)) {
             errorStreamDoesNotExist(res, streamId);
             return;
         }
 
-        streamService.playNote(req.params.streamId, req.body);
+        switch (action) {
+            case "start":
+                streamService.startNote(streamId, note);
+                break;
+            case "stop":
+                streamService.stopNote(streamId, note);
+                break;
+        }
         res.sendStatus(200);
     }));
 

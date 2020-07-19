@@ -1,4 +1,4 @@
 export interface Note {
     frequency: number;
-    velocity: number;
+    velocity?: number;
 }
