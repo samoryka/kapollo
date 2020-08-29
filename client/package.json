@@ -1,0 +1,26 @@
+{
+  "name": "kapollo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next -p 9000",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "socket.io-client": "^2.3.0",
+    "tone": "^14.7.39"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/socket.io-client": "^1.4.33",
+    "@types/webmidi": "^2.0.4",
+    "typescript": "3.9.7"
+  },
+  "license": "ISC"
+}
