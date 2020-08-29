@@ -1,7 +1,7 @@
 import * as express from "express";
 import {Request, Response} from "express";
+import * as process from "process";
 import StreamService from "../services/StreamService";
-import {getWebSocketPort} from "../utils/ProcessConfig";
 import {Server} from "socket.io";
 import {Note} from "../models/Note";
 import {StreamParamsDictionary} from "../models/api/stream/StreamParamsDictionary";
@@ -11,7 +11,7 @@ export const streamController = (socketServer: Server) => {
     const streamService = new StreamService(socketServer);
 
     streamController.get("/", ((req, res) => {
-        res.send({streamUrl: `ws://${req.hostname}:${getWebSocketPort()}`});
+        res.send({streamUrl: `ws://${req.hostname}:${process.env.WEBSOCKET_PORT}`});
     }));
 
     streamController.post("/", ((req, res) => {
