@@ -1,0 +1,7 @@
+@import "../../styles/variables";
+
+.IndexCardContainer {
+  @media (max-width: $screen-tablet) {
+      padding: 0 $spacing-default;
+  }
+}

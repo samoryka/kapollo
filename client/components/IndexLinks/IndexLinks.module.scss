@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.IndexLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: $spacing-default;
+
+  @media (max-width: $screen-tablet) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+.IndexLinksItem {
+  &:not(:first-child):not(:last-child) {
+    padding: 0 $spacing-default;
+  }
+
+  @media (max-width: $screen-tablet) {
+    &:not(:first-child):not(:last-child) {
+      padding: $spacing-default 0;
+    }
+  }
+}

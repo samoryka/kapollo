@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.Background {
+  height: 100%;
+  width: 100%;
+
+  background: $color-background-primary;
+
+  &.secondary {
+    background: $color-background-secondary;
+
+  }
+}

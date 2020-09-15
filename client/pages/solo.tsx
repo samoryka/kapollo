@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import {useNotesVisualizer} from "../hooks/useNotesVisualizer";
 
 
-const StandalonePage = () => {
+const SoloPage = () => {
     const [showNote, hideNotes, getVisibleNotes] = useNotesVisualizer();
 
     const [synth, playNote, stopNote] = useInstrument();
@@ -40,4 +40,4 @@ const StandalonePage = () => {
 
 };
 
-export default StandalonePage;
+export default SoloPage;

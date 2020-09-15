@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.Button {
+  background: $color-accent;
+  border: none;
+  border-radius: 150px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include fastTransition;
+  @include clickable;
+
+  &:hover {
+    background-color: $color-accent-darker;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .ButtonText {
+    color: $color-text-primary;
+    margin-left: $spacing-small;
+    font-size: $font-size-body;
+  }
+}
