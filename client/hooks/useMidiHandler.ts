@@ -4,8 +4,8 @@ import {NoteCallback} from "../interfaces";
 const midiNoteToFrequency = (midiNote: number) => Math.pow(2, (midiNote - 69) / 12) * 440;
 const midiVelocityToVelocity = (midiVelocity: number) => midiVelocity / 128;
 
-export const useMidiHandler = (onKeyUp: NoteCallback, onKeyDown: NoteCallback): [() => void, () => void, WebMidi.MIDIPort[] | undefined] => {
-    const [midiControllers, setMidiControllers] = useState<WebMidi.MIDIPort[]>();
+export const useMidiHandler = (onKeyUp: NoteCallback, onKeyDown: NoteCallback): [() => void, () => void, WebMidi.MIDIInput[] | undefined] => {
+    const [midiControllers, setMidiControllers] = useState<WebMidi.MIDIInput[]>();
 
     const handleControllerMidiMessage = (message: WebMidi.MIDIMessageEvent) => {
         const [command, key, velocity] = message.data;
@@ -45,7 +45,6 @@ export const useMidiHandler = (onKeyUp: NoteCallback, onKeyDown: NoteCallback): 
             .then(
                 access => {
                     const controllers = Array.from(access.inputs.values());
-
                     controllers.map(input => delete input.onmidimessage);
                 },
                 failure => {

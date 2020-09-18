@@ -1,5 +1,9 @@
 @import "./variables";
 
+@mixin longTransition($properties: all) {
+  @include transition($properties, 3.5s)
+}
+
 @mixin mediumTransition($properties: all) {
   @include transition($properties, 0.2s)
 }
@@ -16,10 +20,6 @@
   font-family: 'Kumbh Sans', sans-serif;
 }
 
-@mixin titleFont {
-  font-family: 'Pirata One', cursive;
-}
-
 @mixin shadow {
   box-shadow: 0 5px 10px $color-border;
   @include mediumTransition(box-shadow);
@@ -33,4 +33,15 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+@mixin tag($color) {
+  background: $color;
+  border: none;
+  border-radius: 150px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

@@ -5,6 +5,7 @@ import {Card} from "../components/Card/Card";
 import {IndexLinks} from "../components/IndexLinks/IndexLinks";
 import {IndexCardContainer} from "../components/IndexCardContainer/IndexCardContainer";
 import Head from "next/head";
+import {Heading} from "../components/Heading/Heading";
 
 const IndexPage = () => (
     <>
@@ -14,7 +15,7 @@ const IndexPage = () => (
         <Background isSecondary={true}>
             <CenteredChildLayout>
                 <IndexCardContainer>
-                    <Card title={"Kapollo"}>
+                    <Card title={<Heading>Kapollo</Heading>}>
                         <IndexLinks/>
                     </Card>
                 </IndexCardContainer>

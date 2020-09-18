@@ -26,15 +26,26 @@ const notesReducer: Reducer<NotesState, NoteAction> = (state: NotesState, action
     }
 };
 
-export const useNotesVisualizer = (): [NoteCallback, NoteCallback, () => string] => {
+export const useNotesVisualizer = (): [NoteCallback, NoteCallback, number] => {
     const [state, dispatch] = useReducer(notesReducer, {playing: new Map<number, Note>()});
 
     const displayNote = (note: Note) => dispatch({type: "START", note});
     const hideNote = (note: Note) => dispatch({type: "STOP", note});
-    const getVisibleNotes = () => [...state.playing.keys()]
-        .sort()
-        .map((frequency: number) => frequency.toFixed())
-        .join("   ");
+    const getOverallVelocity = () => {
+        const values = [...state.playing.values()];
+        if (values.length === 0) {
+            return 0;
+        }
 
-    return [displayNote, hideNote, getVisibleNotes];
+
+        let velocity = values
+            .map(note => note.velocity)
+            .reduce((acc: number = 0, curr: number | undefined) => (acc || 0) + (curr || 0));
+        velocity = velocity || 0;
+        velocity = velocity * 0.75;
+
+        return velocity;
+    };
+
+    return [displayNote, hideNote, getOverallVelocity()];
 };

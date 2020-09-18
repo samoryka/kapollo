@@ -12,16 +12,20 @@
     justify-content: center;
     align-items: stretch;
   }
-}
 
-.IndexLinksItem {
-  &:not(:first-child):not(:last-child) {
-    padding: 0 $spacing-default;
+  .IndexLinksItem {
+    &:not(:first-child):not(:last-child) {
+      padding: 0 $spacing-default;
+    }
+
+    @media (max-width: $screen-tablet) {
+      &:not(:first-child):not(:last-child) {
+        padding: $spacing-default 0;
+      }
+    }
   }
 
-  @media (max-width: $screen-tablet) {
-    &:not(:first-child):not(:last-child) {
-      padding: $spacing-default 0;
-    }
+  .IndexLinksButton {
+    width: 100%;
   }
 }

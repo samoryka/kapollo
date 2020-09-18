@@ -5,7 +5,7 @@ import {Button, ButtonProps} from "../Button/Button";
 
 const ButtonLink = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => (
         <div className={styles.IndexLinksItem}>
-            <Button {...props} customRef={ref}/>
+            <Button {...props} customRef={ref} className={styles.IndexLinksButton}/>
         </div>
     )
 );

@@ -2,14 +2,7 @@
 @import "../../styles/mixins";
 
 .Button {
-  background: $color-accent;
-  border: none;
-  border-radius: 150px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  @include tag($color-accent);
   @include fastTransition;
   @include clickable;
 
@@ -21,9 +14,22 @@
     outline: none;
   }
 
+  &.disabled {
+    color: $color-border;
+    background-color: $color-border;
+
+    .ButtonText {
+      color: $color-text-secondary;
+    }
+  }
+
   .ButtonText {
     color: $color-text-primary;
     margin-left: $spacing-small;
     font-size: $font-size-body;
+
+    @media (max-width: $screen-tablet) {
+      font-size: $font-size-body-mobile;
+    }
   }
 }

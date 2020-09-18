@@ -1,28 +1,25 @@
 import {Note, NoteCallback} from "../interfaces";
 import {useEffect, useState} from "react";
-import {context, PolySynth, Synth} from "tone";
+import {PolySynth, Synth} from "tone";
 
 export const useInstrument = (): [PolySynth | undefined, NoteCallback, NoteCallback] => {
     const [synth, setSynth] = useState<PolySynth>();
-    const [isInitialized, setIsInitialized] = useState(false);
-
     useEffect(() => {
         setSynth(new PolySynth(Synth));
+        return () => {
+            setSynth(undefined);
+        };
     }, []);
 
-    const initialize = () => {
-        if (context.state !== "running") {
-            context.resume().then(() => {
-                synth?.toDestination();
-                setIsInitialized(true);
-            });
-        }
-    };
+    useEffect(() => {
+        synth?.toDestination();
+
+        return () => {
+            synth?.disconnect();
+        };
+    }, [synth]);
 
     const playNote = (note: Note) => {
-        if (!isInitialized) {
-            initialize();
-        }
         synth?.triggerAttack(note.frequency, undefined, note.velocity);
     };
 
