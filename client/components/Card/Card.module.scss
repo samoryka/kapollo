@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.Card {
+  background: $color-background-primary;
+  border-radius: 10px;
+  padding: $spacing-default;
+
+  hr {
+    border: $color-border solid 1px;
+    margin: $spacing-default 0;
+  }
+}
+
+.CardHeading {
+  text-align: center;
+}

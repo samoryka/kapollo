@@ -1,0 +1,25 @@
+name: Frontend CI
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install modules
+        run: |
+          cd client
+          npm install
+
+      - name: Run ESLint
+        run: |
+          cd client
+          npm run lint
+
+      - name: Run tests
+        run: |
+          cd client
+          npm test

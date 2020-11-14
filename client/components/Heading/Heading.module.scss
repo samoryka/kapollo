@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.Heading {
+  @include defaultFont();
+  font-weight: bold;
+  color: $color-text-primary;
+  text-align: center;
+
+  &.h1 {
+    font-size: $font-size-h1;
+    @media (max-width: $screen-tablet) {
+      font-size: $font-size-h1-mobile;
+    }
+  }
+
+  &.h2 {
+    font-size: $font-size-h2;
+    @media (max-width: $screen-tablet) {
+      font-size: $font-size-h2-mobile;
+    }
+  }
+
+  &.h3 {
+    font-size: $font-size-h3;
+    @media (max-width: $screen-tablet) {
+      font-size: $font-size-h3-mobile;
+    }
+  }
+}

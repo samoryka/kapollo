@@ -1,0 +1,11 @@
+
+/stream
+    GET => return url of the websocket server
+    POST => create stream (create websocket server), return id of the stream
+    /{id}
+        DELETE => stop stream (disconnect people connect to room of the stream)
+        /play
+            POST => make the websocket emit note
+
+/clap
+    POST => send clap to stream

@@ -1,0 +1,16 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.Text {
+  @include defaultFont();
+  color: $color-text-primary;
+  font-size: $font-size-body;
+
+  @media (max-width: $screen-tablet) {
+    font-size: $font-size-body-mobile;
+  }
+
+  &.secondary {
+    color: $color-text-secondary;
+  }
+}

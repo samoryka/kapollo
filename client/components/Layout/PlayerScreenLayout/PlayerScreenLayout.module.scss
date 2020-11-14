@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+
+.PayerScreenLayout {
+  display: flex;
+  flex-direction: row;
+  padding: $spacing-default $spacing-default $spacing-default 4*$spacing-default;
+
+  @media (max-width: $screen-tablet) {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .Item {
+    padding: $spacing-default;
+
+    &.fillRemainigSpace {
+      flex-grow: 1;
+    }
+  }
+}
