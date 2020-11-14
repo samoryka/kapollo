@@ -2,7 +2,7 @@ import {default as React, FC} from "react";
 import {PlayerScreenItem} from "../../components/Layout/PlayerScreenLayout/PlayerScreenLayout";
 import styles from "./NotesVisualizer.module.scss";
 
-export const NotesVisualizer: FC<{ velocity: number }> = ({velocity}) => {
+const NotesVisualizer: FC<{ velocity: number }> = ({velocity}) => {
     const maxSize = velocity > 0 ? (velocity * 100).toFixed(2) : 100;
 
     return (
@@ -19,3 +19,5 @@ export const NotesVisualizer: FC<{ velocity: number }> = ({velocity}) => {
         </PlayerScreenItem>
     );
 };
+
+export default NotesVisualizer;

@@ -1,6 +1,6 @@
 import {describe} from "@jest/globals";
 import {render, screen} from "@testing-library/react";
-import {InfoCard} from "./InfoCard";
+import InfoCard from "../../../pages/solo/InfoCard";
 import React from "react";
 
 describe("InfoCard", () => {

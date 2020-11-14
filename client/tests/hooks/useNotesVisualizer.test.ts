@@ -1,7 +1,7 @@
 import {describe} from "@jest/globals";
-import {useNotesVisualizer} from "./useNotesVisualizer";
+import {useNotesVisualizer} from "../../hooks/useNotesVisualizer";
 import {renderHook} from "@testing-library/react-hooks";
-import {Note} from "../interfaces";
+import {Note} from "../../interfaces";
 import {act} from "react-test-renderer";
 
 const NOTE_A_1: Note = {frequency: 444, velocity: 1};

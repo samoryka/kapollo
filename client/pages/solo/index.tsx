@@ -6,8 +6,8 @@ import {useNotesVisualizer} from "../../hooks/useNotesVisualizer";
 import Head from "next/dist/next-server/lib/head";
 import {Background} from "../../components/Background/Background";
 import {PlayerScreenLayout} from "../../components/Layout/PlayerScreenLayout/PlayerScreenLayout";
-import {InfoCard} from "./InfoCard";
-import {NotesVisualizer} from "./NotesVisualizer";
+import InfoCard from "./InfoCard";
+import NotesVisualizer from "./NotesVisualizer";
 
 
 const SoloPage = () => {

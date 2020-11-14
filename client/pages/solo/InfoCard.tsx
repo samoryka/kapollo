@@ -6,7 +6,7 @@ import {Card} from "../../components/Card/Card";
 import {Heading} from "../../components/Heading/Heading";
 import {PlayerScreenItem} from "../../components/Layout/PlayerScreenLayout/PlayerScreenLayout";
 
-export const InfoCard: FC<{ started: boolean, setStarted: Dispatch<boolean>, midiControllers?: WebMidi.MIDIPort[] }> = ({started, setStarted, midiControllers}) => (
+const InfoCard: FC<{ started: boolean, setStarted: Dispatch<boolean>, midiControllers?: WebMidi.MIDIPort[] }> = ({started, setStarted, midiControllers}) => (
     <PlayerScreenItem>
         <Card title={<Heading size={"h2"}>Standalone Player</Heading>}>
             <div className={styles.Instruments}>
@@ -32,3 +32,5 @@ export const InfoCard: FC<{ started: boolean, setStarted: Dispatch<boolean>, mid
         </Card>
     </PlayerScreenItem>
 );
+
+export default InfoCard;
