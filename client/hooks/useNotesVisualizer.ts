@@ -14,13 +14,15 @@ const notesReducer: Reducer<NotesState, NoteAction> = (state: NotesState, action
     const {playing} = state;
     const {type, note} = action;
     switch (type) {
-        case "START":
+        case "START": {
             const notesAfterAddition = playing.set(note.frequency, note);
             return {playing: notesAfterAddition};
-        case "STOP":
+        }
+        case "STOP": {
             const notesAfterDeletion = new Map(playing);
             notesAfterDeletion.delete(note.frequency);
             return {playing: notesAfterDeletion};
+        }
         default:
             throw new Error(`Unhandled action type: ${type}`);
     }
@@ -40,7 +42,7 @@ export const useNotesVisualizer = (): [NoteCallback, NoteCallback, number] => {
 
         let velocity = values
             .map(note => note.velocity)
-            .reduce((acc: number = 0, curr: number | undefined) => (acc || 0) + (curr || 0));
+            .reduce((acc = 0, curr: number | undefined) => (acc) + (curr || 0));
         velocity = velocity || 0;
         velocity = velocity * 0.75;
 

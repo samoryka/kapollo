@@ -17,7 +17,7 @@ jobs:
       - name: Run ESLint
         run: |
           cd client
-          eslint . --ext .js,.jsx,.ts,.tsx
+          npm run lint
 
       - name: Run tests
         run: |

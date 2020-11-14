@@ -34,7 +34,7 @@ const SoloPage = () => {
         return () => {
             removeMidiHandler();
         };
-    }, [synth, started]);
+    }, [synth, started]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
